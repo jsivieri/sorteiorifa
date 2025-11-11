@@ -25,7 +25,7 @@ body {
 }
 .header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
 .info{flex:1;text-align:center}
-.datetime{font-size:1.25rem;opacity:1;color:#fff;margin-bottom:.35rem;font-weight:700}
+.datetime{font-size:2.5rem;opacity:1;color:#fff;margin-bottom:.35rem;font-weight:700}
 .title{font-size:1.6rem;margin:0;text-transform:uppercase;letter-spacing:1px}
 .panel{display:flex;flex-direction:column;align-items:center;gap:1rem;padding:1rem}
 .fixed-max{font-size:1.05rem;color:#ddd}
@@ -120,7 +120,7 @@ label{font-size:.95rem;color:#ddd}
   .container{margin:0; padding:0.6rem; border-radius:8px}
   .header{margin-bottom:.5rem}
   .title{font-size:1.1rem}
-  .datetime{font-size:.95rem}
+  .datetime{font-size:1.9rem}
   .odometer{font-size:2.6rem;min-width:160px;padding:.2rem .6rem}
   .decor{display:none}
   .hero-images img.logo{max-width:85px}
