@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sorteio - Odômetro</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+
+
+      <div class="info">
+        <h1 class="title">Sorteio da Rifa 12/11/2025</h1>
+        <div class="hero-images">
+          <img src="imagens/logo.jpg" alt="Logo" class="logo" />
+          <img src="imagens/premios.jpg" alt="Prêmios" />
+        </div>
+      </div>
+
+ 
+    </header>
+
+    <section class="panel">
+      
+      <div class="odometer-wrap">
+        <div id="odometer" class="odometer" aria-live="polite">0</div>
+      </div>
+
+  <div id="datetime" class="datetime">--/--/---- --:--:--</div>
+
+      <div class="winners">
+        <div class="winner-row"><span class="rank">1º short rosa</span><span id="winner1" class="winner-value">—</span></div>
+        <div class="winner-row"><span class="rank">2º short preto</span><span id="winner2" class="winner-value">—</span></div>
+        <div class="winner-row"><span class="rank">3º luvas</span><span id="winner3" class="winner-value">—</span></div>
+      </div>
+
+      <div id="finalMessage" class="final-message" aria-live="polite" hidden></div>
+
+      <button id="drawBtn" class="btn draw">SORTear</button>
+    </section>
+
+    <footer class="footer-note">Obrigado por participar de nosso sorteio!!!</footer>
+  </main>
+
+  <script src="javascript/javascript.js"></script>
+</body>
+</html>

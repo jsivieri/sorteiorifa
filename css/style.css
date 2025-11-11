@@ -1,0 +1,136 @@
+/* style.css — tema preto e branco com decoração Muay Thai */
+:root{
+  --bg: #0b0b0b;
+  --panel: #fff;
+  --text: #fff;
+  --accent: #000;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body {
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  margin: 0;
+  background: linear-gradient(180deg,#070707 0%, #111 60%);
+  color: var(--text);
+  -webkit-font-smoothing:antialiased;
+}
+.container{
+  max-width:900px;
+  margin:0 auto; /* margem superior zero conforme solicitado */
+  padding:1.0rem 1.25rem 1.25rem;
+  background:linear-gradient(180deg,#111,#0b0b0b);
+  border-radius:12px;
+  border:1px solid #222;
+  box-shadow:0 20px 60px rgba(0,0,0,.7);
+}
+.header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+.info{flex:1;text-align:center}
+.datetime{font-size:1.25rem;opacity:1;color:#fff;margin-bottom:.35rem;font-weight:700}
+.title{font-size:1.6rem;margin:0;text-transform:uppercase;letter-spacing:1px}
+.panel{display:flex;flex-direction:column;align-items:center;gap:1rem;padding:1rem}
+.fixed-max{font-size:1.05rem;color:#ddd}
+label{font-size:.95rem;color:#ddd}
+
+/* estilos para imagens hero (logo e prêmios) */
+.hero-images{display:flex;flex-direction:column;align-items:center;gap:.6rem;margin-top:.6rem}
+.hero-images img{max-width:420px;width:100%;height:auto;border-radius:8px;border:2px solid #111;box-shadow:0 8px 30px rgba(0,0,0,.6)}
+
+/* reduzir especificamente a logo para 50% (de 420px para ~210px) */
+.hero-images img.logo{max-width:105px}
+
+/* Destaque e efeito na caixa do odômetro */
+.odometer-wrap{
+  position:relative;
+  transition: box-shadow .28s ease, transform .18s ease, border-color .18s ease;
+  background: radial-gradient(1200px 200px at 50% 0%, rgba(255,255,255,0.02), transparent 10%), linear-gradient(180deg,#050505,#171717);
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.8), inset 0 6px 18px rgba(255,255,255,0.02);
+}
+.odometer-wrap.highlight{
+  transform: translateY(-6px);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.9), 0 0 40px rgba(255,255,255,0.03);
+  border-color: rgba(255,255,255,0.08);
+}
+
+/* brilho móvel sutil sobre o odômetro */
+.odometer-wrap::after{
+  content:'';position:absolute;left:-40%;top:0;width:40%;height:100%;background:linear-gradient(90deg,rgba(255,255,255,0.02),rgba(255,255,255,0.06),rgba(255,255,255,0.02));transform:skewX(-18deg);opacity:0;pointer-events:none;transition:opacity .4s, left 1.2s linear;
+}
+.odometer-wrap.highlight::after{opacity:1;left:120%;transition:left 1.6s linear, opacity .3s}
+
+/* efeito visual do odômetro (pulso/shine enquanto está parado no resultado) */
+.odometer.pulse{animation:odometerPulse 1.4s ease-in-out infinite}
+@keyframes odometerPulse{0%{filter:drop-shadow(0 6px 12px rgba(0,0,0,0.6))}50%{filter:drop-shadow(0 14px 30px rgba(255,255,255,0.03))}100%{filter:drop-shadow(0 6px 12px rgba(0,0,0,0.6))}}
+
+/* Botão sortear: destaque e animação */
+.btn.draw{transition:box-shadow .18s ease, transform .12s ease, background .12s ease}
+.btn.draw:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(0,0,0,0.6),0 0 18px rgba(255,255,255,0.02)}
+.btn.draw:active{transform:translateY(1px)}
+.btn.draw.rolling{animation:btnShake 900ms linear infinite;box-shadow:0 22px 60px rgba(0,0,0,0.75),0 0 30px rgba(255,255,255,0.02)}
+.btn.draw.result{box-shadow:0 0 34px rgba(255,255,255,0.08),0 20px 50px rgba(0,0,0,0.7);transform:translateY(-4px)}
+@keyframes btnShake{0%{transform:translateY(0) rotate(0deg)}25%{transform:translateY(-2px) rotate(-1deg)}50%{transform:translateY(0) rotate(0deg)}75%{transform:translateY(-2px) rotate(1deg)}100%{transform:translateY(0) rotate(0deg)}}
+
+/* pequena melhora responsiva para o odômetro */
+@media (max-width:520px){
+  .odometer{font-size:3.2rem;min-width:180px}
+}
+
+/* estilos para a lista de vencedores */
+.winners{width:100%;max-width:520px;margin:1rem auto 0;display:flex;flex-direction:column;gap:.5rem}
+.winner-row{display:flex;justify-content:space-between;align-items:center;padding:.55rem .75rem;background:linear-gradient(180deg,#080808,#111);border:1px solid rgba(255,255,255,0.03);border-radius:8px}
+.winner-row .rank{color:#cfcfcf;font-weight:600}
+.winner-value{font-family:'Courier New',monospace;font-size:1.45rem;color:#fff;background:transparent}
+
+.final-message{margin-top:1rem;text-align:center;padding:.9rem;border-radius:8px;color:#fff;background:linear-gradient(90deg,#0f0f0f,#161616);border:1px solid rgba(255,255,255,0.04);font-weight:700;display:none}
+.final-message.show{display:block;box-shadow:0 18px 50px rgba(0,0,0,0.7);transform:translateY(-4px)}
+
+/* data/hora fixa abaixo do odômetro */
+.fixed-datetime{margin-top:.6rem;color:#e3e3e3;font-size:1rem;text-align:center;opacity:0.95}
+
+.odometer-wrap{margin:0.5rem 0;padding:1rem;background:linear-gradient(180deg,#000,#222);border-radius:10px;border:2px solid #111;width:100%;display:flex;justify-content:center}
+.odometer{font-family: 'Courier New', Courier, monospace;font-weight:700;font-size:4.75rem;letter-spacing:.06em;color:#fff;padding:.25rem 1rem;border-radius:8px;background:linear-gradient(180deg,#0b0b0b,#222);box-shadow:inset 0 -6px 18px rgba(0,0,0,.6);min-width:260px;text-align:center}
+
+.btn{padding:.9rem 2rem;border-radius:8px;border:0;cursor:pointer;text-transform:uppercase;font-weight:700}
+.btn.draw{background:#000;color:#fff;border:2px solid #111;box-shadow:0 6px 18px rgba(0,0,0,.6)}
+.btn.draw:active{transform:translateY(2px)}
+
+.footer-note{text-align:center;margin-top:1rem;color:#bbb;font-size:.9rem}
+
+.decor{width:60px;height:60px;display:flex;align-items:center;justify-content:center}
+.decor .icon{width:56px;height:56px;display:block}
+.decor.left{transform:translateX(-8px)}
+.decor.right{transform:translateX(8px)}
+
+/* efeito visual do 'giro' - aplicado durante a animação */
+.rolling{animation: wobble 700ms linear infinite}
+@keyframes wobble{
+  0%{transform:rotateX(0deg)}
+  50%{transform:rotateX(30deg)}
+  100%{transform:rotateX(0deg)}
+}
+
+/* responsivo */
+@media (max-width:520px){
+  /* Espaçamento e escala reduzidos para caber na tela do celular */
+  .container{margin:0; padding:0.6rem; border-radius:8px}
+  .header{margin-bottom:.5rem}
+  .title{font-size:1.1rem}
+  .datetime{font-size:.95rem}
+  .odometer{font-size:2.6rem;min-width:160px;padding:.2rem .6rem}
+  .decor{display:none}
+  .hero-images img.logo{max-width:85px}
+  .hero-images img{max-width:160px}
+  .winners{gap:.35rem}
+  .winner-row{padding:.4rem .6rem}
+  .winner-value{font-size:1.15rem}
+  .btn.draw{padding:.65rem 1.2rem;font-size:.95rem}
+  .final-message{font-size:.95rem;padding:.6rem}
+}
+
+/* ajuste extra para telas muito pequenas (<=380px) */
+@media (max-width:380px){
+  .odometer{font-size:2.2rem;min-width:140px}
+  .hero-images img.logo{max-width:70px}
+  .hero-images img{max-width:140px}
+  .title{font-size:1rem}
+}
