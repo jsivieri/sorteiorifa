@@ -81,6 +81,11 @@ label{font-size:.95rem;color:#ddd}
 .winner-row .rank{color:#cfcfcf;font-weight:600}
 .winner-value{font-family:'Courier New',monospace;font-size:1.45rem;color:#fff;background:transparent}
 
+/* estilo para separar e colorir número e nome do vencedor */
+.winner-number{color:#ffd54a; /* dourado */ font-weight:800}
+.winner-sep{margin:0 .45rem;color:#cfcfcf}
+.winner-owner{color:#ffffff;font-weight:800}
+
 .final-message{margin-top:1rem;text-align:center;padding:.9rem;border-radius:8px;color:#fff;background:linear-gradient(90deg,#0f0f0f,#161616);border:1px solid rgba(255,255,255,0.04);font-weight:700;display:none}
 .final-message.show{display:block;box-shadow:0 18px 50px rgba(0,0,0,0.7);transform:translateY(-4px)}
 
